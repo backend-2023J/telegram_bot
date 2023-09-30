@@ -1,14 +1,17 @@
 from telegram import Bot
-import os 
+# import os 
 
 # Get the token from the environment variables
-TOKEN = os.environ['TOKEN']
+TOKEN = '6388893107:AAHm55DuPheZmctXz5mX5HnSfD9zfgmpNhY'
 # Create a bot object
 bot = Bot(TOKEN)
+
+update = bot.getUpdates()
+
+chat_id = update.message.chat.id
+text = update.message.text
 # Print the bot info
 
 
-# Send a message to the bot
-chat_id = ''
-msg = bot.sendMessage(chat_id,"Hello World!!!")
+msg = bot.sendMessage(chat_id, text)
 print(msg.text)
