@@ -115,7 +115,7 @@ class Bot:
         """
         pass
 
-    def sendContact(self,chat_id:int,phone_number:str,first_name:str):
+    def sendContact(self,chat_id:int,phone_number:str,first_name:str, last_name=None):
         """
         Use this method to send phone contacts. On success, the sent Message is returned.
         args:
@@ -125,7 +125,15 @@ class Bot:
         returns:
             A message object
         """
-        pass
+        params = {
+            "chat_id": chat_id,
+            "phone_number": phone_number,
+            "first_name": first_name,
+            "last_name": last_name
+        }
+        response = response = requests.get(f"{self.base_url}sendContact", params=params)
+        data = response.json()
+        return data
 
     
       
