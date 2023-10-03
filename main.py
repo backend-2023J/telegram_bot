@@ -1,8 +1,8 @@
 from telegram import Bot
-# import os 
+import os 
 
-# Get the token from the environment variables
-TOKEN = '6388893107:AAHm55DuPheZmctXz5mX5HnSfD9zfgmpNhY'
+TOKEN = os.environ['TOKEN']
+
 # Create a bot object
 bot = Bot(TOKEN)
 
@@ -12,6 +12,9 @@ chat_id = update.message.chat.id
 text = update.message.text
 # Print the bot info
 
+phone = "+998931234567"
+first_name = "Bilol"
+# last_name = "Husanov"
 
-msg = bot.sendMessage(chat_id, text)
-print(msg.text)
+msg = bot.sendContact(chat_id=chat_id, phone_number=phone, first_name=first_name, last_name=None)
+print(msg)
